@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Dark mode ---------------------------------------------------------
+   Settings > Appearance adds the "dark" class to <html>.*/
+   
+html.dark { color-scheme: dark; }
+
+.dark .bg-\[\#e4e6ec\] { background-color: #0b0e1a; }
+.dark .bg-\[\#f1f2f7\] { background-color: #141829; }
+.dark .bg-white { background-color: #1c2136; }
+.dark .bg-gray-50, .dark .bg-gray-100 { background-color: #232842; }
+.dark .bg-gray-200 { background-color: #2a3050; }
+.dark .hover\:bg-gray-50:hover, .dark .hover\:bg-gray-100:hover { background-color: #2a3050; }
+
+.dark .text-gray-900 { color: #f9fafb; }
+.dark .text-gray-800 { color: #e5e7eb; }
+.dark .text-gray-700 { color: #d1d5db; }
+.dark .text-gray-600 { color: #bcc3d0; }
+.dark .text-\[\#1a237e\] { color: #9fa8ff; }
+.dark .text-\[\#1b5e20\] { color: #66bb6a; }
+
+.dark .border-gray-200 { border-color: #2b3150; }
+.dark .border-gray-300 { border-color: #363d5e; }
+.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]) { border-color: #2b3150; }
+.dark .ring-gray-200 { --tw-ring-color: #2b3150; }
+.dark .bg-\[\#1a237e\] { background-color: #3949ab; }
+.dark .border-\[\#1a237e\] { border-color: #3949ab; }
+
+.dark .bg-green-50 { background-color: #12301f; }
+.dark .bg-green-100 { background-color: #153a22; }
+.dark .border-green-200 { border-color: #1f5a36; }
+.dark .text-green-800 { color: #a7e3b4; }
+.dark .text-green-700 { color: #7fd18f; }
+.dark .bg-red-50 { background-color: #3a1820; }
+.dark .bg-red-100 { background-color: #4a1d27; }
+.dark .border-red-200 { border-color: #6b2a36; }
+.dark .text-red-700, .dark .text-red-600 { color: #ff9a9a; }
+.dark .bg-amber-50 { background-color: #3a2f12; }
+.dark .text-amber-800 { color: #f4cf7a; }
+.dark .text-amber-600 { color: #f5b73b; }
+
+.dark input:not([type='checkbox']):not([type='radio']):not(.bg-transparent),
+.dark select,
+.dark textarea {
+    background-color: #232842;
+    color: #e5e7eb;
+    border-color: #363d5e;
+}
+
+/* Dashboard chart */
+.dark svg line[stroke='#e5e7eb'] { stroke: #2b3150; }
+.dark svg text { fill: #9ca3af; }
+.dark svg [stroke='#1a237e'] { stroke: #8c9eff; }
+.dark svg circle[fill='#fff'] { fill: #141829; }
+
+/* The sidebar keeps its own colors in dark mode */
+.dark aside .bg-white { background-color: #fff; }
+.dark aside .text-\[\#1a237e\] { color: #1a237e; }
+
+/* Toggle switch (Settings). Plain CSS, so it never depends on Tailwind picking up new classes. */
+.switch {
+    position: relative;
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 1.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: #9ca3af;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+.switch::after {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: #fff;
+    transition: transform 0.15s;
+}
+.switch[aria-checked='true'] {
+    background: #3949ab;
+}
+.switch[aria-checked='true']::after {
+    transform: translateX(1.75rem);
+}
+.switch:focus-visible {
+    outline: 2px solid #3949ab;
+    outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .switch,
+    .switch::after {
+        transition: none;
+    }
+}
+/* Class status colors (tutor My Schedule and Dashboard) */ /* PUTANG INA ASA MAN ANG MALI ANI */
+.tone-present { background: #f0fdf4; border-color: #86efac; color: #14532d; }
+.tone-pending { background: #fff7ed; border-color: #fdba74; color: #7c2d12; }
+.tone-absent { background: #fef2f2; border-color: #fca5a5; color: #7f1d1d; }
+.dark .tone-present { background: #12301f; border-color: #1f5a36; color: #a7e3b4; }
+.dark .tone-pending { background: #3a2412; border-color: #8a4b1c; color: #fdba74; }
+.dark .tone-absent { background: #3a1820; border-color: #6b2a36; color: #ff9a9a; }
+
+.chip-present { background: #15803d; }
+.chip-pending { background: #c2410c; }
+.chip-absent { background: #b91c1c; }
+
+/* Attendance standing badges (tutor Attendance page) */
+.standing {
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.standing-complete { background: #f0fdf4; border-color: #86efac; color: #14532d; }
+.standing-pending { background: #fff7ed; border-color: #fdba74; color: #7c2d12; }
+.standing-absent { background: #fef2f2; border-color: #fca5a5; color: #7f1d1d; }
+.standing-covered { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
+.dark .standing-complete { background: #12301f; border-color: #1f5a36; color: #a7e3b4; }
+.dark .standing-pending { background: #3a2412; border-color: #8a4b1c; color: #fdba74; }
+.dark .standing-absent { background: #3a1820; border-color: #6b2a36; color: #ff9a9a; }
+.dark .standing-covered { background: #14243f; border-color: #2f5aa8; color: #a9c7ff; }
+
+/* Status badges (Payroll pages) */
+.standing {
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.standing-open { background: #f3f4f6; border-color: #d1d5db; color: #374151; }
+.standing-ended { background: #fefce8; border-color: #fde047; color: #713f12; }
+.standing-received { background: #f0fdf4; border-color: #86efac; color: #14532d; }
+.standing-covered { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
+.dark .standing-open { background: #232842; border-color: #363d5e; color: #d1d5db; }
+.dark .standing-ended { background: #3a3212; border-color: #8a7a1c; color: #fde68a; }
+.dark .standing-received { background: #12301f; border-color: #1f5a36; color: #a7e3b4; }
+.dark .standing-covered { background: #14243f; border-color: #2f5aa8; color: #a9c7ff; }
